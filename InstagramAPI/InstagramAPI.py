@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import requests
@@ -543,7 +543,7 @@ class InstagramAPI:
         }
         if maxid:
             query_string['max_id'] = maxid
-        if system.version_info.major == 3:
+        if sys.version_info.major == 3:
             url += urllib.parse.urlencode(query_string)
         else:
             url += urllib.urlencode(query_string)
@@ -736,8 +736,8 @@ class InstagramAPI:
                 followers.append(item)
 
             if temp["big_list"] == False:
-                return followers            
-            next_max_id = temp["next_max_id"]         
+                return followers
+            next_max_id = temp["next_max_id"]
 
     def getTotalFollowings(self,usernameId):
         followers = []
@@ -750,8 +750,8 @@ class InstagramAPI:
                 followers.append(item)
 
             if temp["big_list"] == False:
-                return followers            
-            next_max_id = temp["next_max_id"] 
+                return followers
+            next_max_id = temp["next_max_id"]
 
     def getTotalUserFeed(self, usernameId, minTimestamp = None):
         user_feed = []
@@ -766,7 +766,7 @@ class InstagramAPI:
             next_max_id = temp["next_max_id"]
 
     def getTotalSelfUserFeed(self, minTimestamp = None):
-        return self.getTotalUserFeed(self.username_id, minTimestamp) 
+        return self.getTotalUserFeed(self.username_id, minTimestamp)
     
     def getTotalSelfFollowers(self):
         return self.getTotalFollowers(self.username_id)
